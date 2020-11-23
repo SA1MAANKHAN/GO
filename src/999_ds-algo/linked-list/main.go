@@ -36,18 +36,16 @@ func (s *singlylinkedlist) nodeExists(k int) *node {
 func (s *singlylinkedlist) appendnode(n *node) {
 	if s.nodeExists(n.key) != nil {
 		fmt.Println("node already exists")
+	} else if head == nil {
+		head = n
+		fmt.Println("Node appended")
 	} else {
-		if head == nil {
-			head = n
-			fmt.Println("Node appended")
-		} else {
-			ptr := head.next
-			for ptr.next != nil {
-				ptr = ptr.next
-			}
-			ptr.next = n
-			fmt.Println("Node appended")
+		ptr := head.next
+		for ptr.next != nil {
+			ptr = ptr.next
 		}
+		ptr.next = n
+		fmt.Println("Node appended")
 	}
 }
 
