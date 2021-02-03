@@ -65,19 +65,25 @@ func (l *LinkedList) Print() {
 	}
 	ptr := l.head
 	for i := 0; i < l.len; i++ {
-		fmt.Println("Node: ", ptr)
+		fmt.Print("--> Node: ", ptr.value)
 		ptr = ptr.next
 	}
 }
 
 // Search returns node position with given value from linked list
 func (l *LinkedList) Search(val int) int {
+	flag := 0
 	ptr := l.head
 	for i := 0; i < l.len; i++ {
 		if ptr.value == val {
+			fmt.Println("found")
+			flag = 1
 			return i
 		}
 		ptr = ptr.next
+	}
+	if flag == 0 {
+		fmt.Println("not found")
 	}
 	return -1
 }
